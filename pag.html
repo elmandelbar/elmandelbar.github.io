@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda de Electrodomésticos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #1a73e8;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #fff;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #1a73e8;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    nav button:hover {
+      background-color: #1558b0;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .productos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .producto {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 250px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .producto img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+    }
+
+    .producto h3 {
+      margin: 10px 0;
+    }
+
+    .producto p {
+      color: green;
+      font-weight: bold;
+    }
+
+    footer {
+      background-color: #1a73e8;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Tienda Electro Hogar</h1>
+    <p>Bienvenido a la mejor tienda de electrodomésticos</p>
+  </header>
+
+  <nav>
+    <button onclick="filtrarProductos('todos')">Todos</button>
+    <button onclick="filtrarProductos('cocina')">Cocina</button>
+    <button onclick="filtrarProductos('lavanderia')">Lavandería</button>
+    <button onclick="filtrarProductos('tecnologia')">Tecnología</button>
+  </nav>
+
+  <div class="container">
+    <section class="productos" id="lista-productos">
+      <div class="producto" data-categoria="cocina">
+        <img src="https://via.placeholder.com/200x150?text=Refrigerador" alt="Refrigerador">
+        <h3>Refrigerador LG</h3>
+        <p>$1,200.000</p>
+      </div>
+      <div class="producto" data-categoria="lavanderia">
+        <img src="https://via.placeholder.com/200x150?text=Lavadora" alt="Lavadora">
+        <h3>Lavadora Samsung</h3>
+        <p>$1,000.000</p>
+      </div>
+      <div class="producto" data-categoria="tecnologia">
+        <img src="https://via.placeholder.com/200x150?text=Televisor" alt="Televisor">
+        <h3>Smart TV 50''</h3>
+        <p>$1,300.000</p>
+      </div>
+      <div class="producto" data-categoria="cocina">
+        <img src="https://via.placeholder.com/200x150?text=Microondas" alt="Microondas">
+        <h3>Microondas Panasonic</h3>
+        <p>$450.000</p>
+      </div>
+      <div class="producto" data-categoria="tecnologia">
+        <img src="https://via.placeholder.com/200x150?text=Laptop" alt="Laptop">
+        <h3>Laptop Dell</h3>
+        <p>$2,200.000</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Tienda Electro Hogar. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function filtrarProductos(categoria) {
+      const productos = document.querySelectorAll('.producto');
+      productos.forEach(producto => {
+        if (categoria === 'todos' || producto.dataset.categoria === categoria) {
+          producto.style.display = 'block';
+        } else {
+          producto.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
